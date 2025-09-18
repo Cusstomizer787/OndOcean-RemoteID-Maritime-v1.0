@@ -1,12 +1,12 @@
 # Guide de Déploiement - OndOcéan RemoteID Maritime
 
-## 🚀 Vue d'Ensemble du Déploiement
+## Vue d'Ensemble du Déploiement
 
 Ce guide détaille le processus complet de déploiement du firmware OndOcéan RemoteID Maritime, de la compilation au déploiement en environnement maritime.
 
-## 📋 Prérequis Système
+## Prérequis Système
 
-### 🖥️ Environnement de Développement
+### Environnement de Développement
 
 #### Logiciels Requis
 - **Arduino CLI** v0.35.0 ou supérieur
@@ -38,7 +38,7 @@ arduino-cli lib install "PubSubClient@2.8"
 arduino-cli lib install "Adafruit NeoPixel@1.15.1"
 ```
 
-### 🔧 Hardware Requis
+### Hardware Requis
 
 #### ESP32-S3 Development Board
 - **Modèle** : ESP32-S3-DevKitC-1 ou compatible
@@ -58,16 +58,17 @@ arduino-cli lib install "Adafruit NeoPixel@1.15.1"
 - **Boîtier IP67** : Protection maritime
 - **Batterie** : LiPo 3.7V 2000mAh minimum
 
-## 🔨 Processus de Compilation
+## Processus de Compilation
 
-### 1. **Préparation de l'Environnement**
+### 1. Préparation de l'Environnement
 
 #### Clonage du Projet
 ```bash
-# Le projet est actuellement en développement local
-# Repository GitHub à créer : https://github.com/ondocean/remoteid-maritime.git
+# Repository GitHub officiel :
+git clone https://github.com/Cusstomizer787/OndOcean-RemoteID-Maritime-v1.0.git
+cd OndOcean-RemoteID-Maritime-v1.0
 
-# Pour l'instant, utiliser le projet local :
+# Ou utiliser le projet local existant :
 cd c:\Users\ncuss\CascadeProjects\windsurf-project\ondocean-remoteid
 ```
 
@@ -82,12 +83,12 @@ arduino-cli core list | findstr esp32
 arduino-cli lib list | findstr "ArduinoJson\|PubSubClient\|Adafruit NeoPixel"
 
 # Sortie attendue:
-# ✓ Arduino CLI found: v0.35.0+
-# ✓ ESP32 core found: v3.3.0
-# ✓ Required libraries installed
+# Arduino CLI found: v0.35.0+
+# ESP32 core found: v3.3.0
+# Required libraries installed
 ```
 
-### 2. **Configuration du Build**
+### 2. Configuration du Build
 
 #### Fichier `build_config.h`
 ```cpp
@@ -112,7 +113,7 @@ arduino-cli lib list | findstr "ArduinoJson\|PubSubClient\|Adafruit NeoPixel"
 #endif
 ```
 
-### 3. **Compilation**
+### 3. Compilation
 
 #### Test de Compilation Rapide
 ```bash
@@ -137,9 +138,9 @@ compile.bat
 # - build/ondocean-remoteid.ino.map    (memory map)
 ```
 
-## 📡 Processus de Flash
+## Processus de Flash
 
-### 1. **Préparation Hardware**
+### 1. Préparation Hardware
 
 #### Connexion ESP32-S3
 ```
@@ -156,7 +157,7 @@ arduino-cli board list
 # COM3         Serial Port (USB) Unknown     esp32:esp32:esp32s3
 ```
 
-### 2. **Flash du Firmware**
+### 2. Flash du Firmware
 
 #### Upload Automatique
 ```bash
@@ -179,7 +180,7 @@ arduino-cli upload -p COM3 --fqbn esp32:esp32:esp32s3:PSRAM=enabled ondocean-rem
 # --verbose    : Mode verbose
 ```
 
-### 3. **Vérification Post-Flash**
+### 3. Vérification Post-Flash
 
 #### Monitoring Série
 ```bash
@@ -193,9 +194,9 @@ arduino-cli monitor -p COM3 -c baudrate=57600
 # [00000456] [INFO ][SYSTEM] System initialization complete - Ready for operation
 ```
 
-## ⚙️ Configuration Initiale
+## Configuration Initiale
 
-### 1. **Configuration WiFi**
+### 1. Configuration WiFi
 
 #### Via Interface Série
 ```cpp
@@ -215,7 +216,7 @@ CONFIG_DEVICE_ID=OND001
 4. Sauvegarde et redémarrage
 ```
 
-### 2. **Calibration Capteurs**
+### 2. Calibration Capteurs
 
 #### Calibration Automatique
 ```cpp
@@ -245,9 +246,9 @@ CAL_SAVE         # Sauvegarder calibration
 CAL_RESET        # Reset calibration
 ```
 
-## 🧪 Tests de Validation
+## Tests de Validation
 
-### 1. **Tests Unitaires**
+### 1. Tests Unitaires
 
 #### Exécution Complète
 ```cpp
@@ -273,7 +274,7 @@ test_run_maritime_tests();      // Tests spécifiques maritimes
 test_run_communication_tests(); // Tests WiFi/MQTT/BLE
 ```
 
-### 2. **Tests d'Intégration**
+### 2. Tests d'Intégration
 
 #### Test Capteurs → MQTT
 ```bash
@@ -281,11 +282,11 @@ test_run_communication_tests(); // Tests WiFi/MQTT/BLE
 python test_integration.py --test sensor_to_mqtt
 
 # Vérifications:
-# ✓ Lecture capteurs BME280, LSM6DS3, LIS3MDL
-# ✓ Validation données dans plages maritimes
-# ✓ Sérialisation JSON schema OndOcean
-# ✓ Publication MQTT vers broker test
-# ✓ Réception et validation côté broker
+# Lecture capteurs BME280, LSM6DS3, LIS3MDL
+# Validation données dans plages maritimes
+# Sérialisation JSON schema OndOcean
+# Publication MQTT vers broker test
+# Réception et validation côté broker
 ```
 
 #### Test GNSS → Validation
@@ -293,14 +294,14 @@ python test_integration.py --test sensor_to_mqtt
 python test_integration.py --test gnss_validation
 
 # Vérifications:
-# ✓ Réception données GNSS u-blox F9P
-# ✓ Parsing NMEA sentences
-# ✓ Validation position maritime (altitude < 120m)
-# ✓ Précision acceptable (< 10m)
-# ✓ Détection position au-dessus de l'eau
+# Réception données GNSS u-blox F9P
+# Parsing NMEA sentences
+# Validation position maritime (altitude < 120m)
+# Précision acceptable (< 10m)
+# Détection position au-dessus de l'eau
 ```
 
-### 3. **Tests de Performance**
+### 3. Tests de Performance
 
 #### Benchmarks Temps Réel
 ```cpp
@@ -318,9 +319,9 @@ void performance_monitoring() {
 }
 ```
 
-## 🌐 Configuration Réseau
+## Configuration Réseau
 
-### 1. **Configuration MQTT**
+### 1. Configuration MQTT
 
 #### Broker Anémone
 ```json
@@ -349,7 +350,7 @@ mosquitto_pub -h anemone.local -t "ondocean/remoteid/OND001/test" -m "Hello from
 mosquitto_sub -h anemone.local -t "ondocean/remoteid/+/data"
 ```
 
-### 2. **Configuration WiFi Maritime**
+### 2. Configuration WiFi Maritime
 
 #### Paramètres Optimisés
 ```cpp
@@ -374,9 +375,9 @@ void wifi_watchdog() {
 }
 ```
 
-## 🛡️ Déploiement Sécurisé
+## Déploiement Sécurisé
 
-### 1. **Configuration Sécurité**
+### 1. Configuration Sécurité
 
 #### Paramètres de Sécurité
 ```cpp
@@ -408,7 +409,7 @@ void security_monitoring() {
 }
 ```
 
-### 2. **Backup et Recovery**
+### 2. Backup et Recovery
 
 #### Sauvegarde Configuration
 ```cpp
@@ -430,9 +431,9 @@ void backup_critical_data() {
 }
 ```
 
-## 📊 Monitoring et Maintenance
+## Monitoring et Maintenance
 
-### 1. **Dashboard de Monitoring**
+### 1. Dashboard de Monitoring
 
 #### Métriques Système
 ```json
@@ -457,7 +458,7 @@ void backup_critical_data() {
 }
 ```
 
-### 2. **Alertes et Notifications**
+### 2. Alertes et Notifications
 
 #### Configuration Alertes
 ```cpp
@@ -484,9 +485,9 @@ struct AlertConfig {
 }
 ```
 
-## 🚀 Mise en Production
+## Mise en Production
 
-### 1. **Checklist Pré-Déploiement**
+### 1. Checklist Pré-Déploiement
 
 #### Validation Hardware
 - [ ] ESP32-S3 fonctionnel avec PSRAM
@@ -510,7 +511,7 @@ struct AlertConfig {
 - [ ] Test humidité jusqu'à 95%
 - [ ] Test interférences électromagnétiques
 
-### 2. **Déploiement Maritime**
+### 2. Déploiement Maritime
 
 #### Installation Physique
 ```
@@ -533,7 +534,7 @@ struct AlertConfig {
 
 ---
 
-## 🆘 Dépannage
+## Dépannage
 
 ### Problèmes Courants
 
@@ -583,4 +584,4 @@ void system_diagnostic() {
 
 ---
 
-**Ce guide garantit un déploiement réussi et sécurisé du firmware OndOcéan RemoteID Maritime en environnement maritime professionnel.** 🌊⚓🚁
+**Ce guide garantit un déploiement réussi et sécurisé du firmware OndOcéan RemoteID Maritime en environnement maritime professionnel.** 

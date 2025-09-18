@@ -219,7 +219,7 @@ void setup_wifi() {
     String ap_ssid = "ONRID-MAR-" + WiFi.macAddress().substring(9);
     ap_ssid.replace(":", "");
     
-    WiFi.softAP(ap_ssid.c_str(), "OndOcean2024");
+    WiFi.softAP(ap_ssid.c_str(), "OndOcean2025");
     
     Serial.println("WiFi configured: " + ap_ssid);
 }
