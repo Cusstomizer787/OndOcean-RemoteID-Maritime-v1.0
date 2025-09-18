@@ -274,14 +274,3 @@ error_print_stats();
 **OndOcéan RemoteID Maritime** - Firmware maritime professionnel pour ESP32-S3  
 Version 1.0.0 - Septembre 2025 🌊🚁
 
-### Setup Initial
-```bash
-# Repository GitHub officiel :
-git clone https://github.com/Cusstomizer787/OndOcean-RemoteID-Maritime-v1.0.git
-cd OndOcean-RemoteID-Maritime-v1.0
-
-# Ou naviguer vers le projet local existant :
-cd c:\Users\ncuss\CascadeProjects\windsurf-project\ondocean-remoteid
-
-# Vérifier les dépendances
-check_dependencies.bat
