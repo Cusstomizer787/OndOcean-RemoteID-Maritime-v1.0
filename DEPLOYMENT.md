@@ -69,7 +69,7 @@ git clone https://github.com/Cusstomizer787/OndOcean-RemoteID-Maritime-v1.0.git
 cd OndOcean-RemoteID-Maritime-v1.0
 
 # Ou utiliser le projet local existant :
-cd c:\Users\ncuss\CascadeProjects\windsurf-project\ondocean-remoteid
+cd /path/to/your/ondocean-remoteid
 ```
 
 #### Vérification des Dépendances

@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-OndOcean RemoteID Development Setup
+OndOcéan RemoteID Maritime - Development Environment Setup
 Prepares ESP32-S3 development environment and validates dependencies
+
+IMPORTANT: Update the configuration paths below for your specific environment
+before running this script.
 """
 
 import os
@@ -11,10 +14,10 @@ import shutil
 import subprocess
 from pathlib import Path
 
-# Configuration
-ARDUINO_REMOTEID_PATH = r"C:\Users\ncuss\Documents\GitHub\ArduRemoteID\RemoteIDModule"
-ONDOCEAN_REMOTEID_PATH = r"C:\Users\ncuss\CascadeProjects\windsurf-project\ondocean-remoteid"
-ARDUINO_CLI_PATH = r"C:\Program Files\Arduino CLI\arduino-cli.exe"
+# Configuration - Update these paths for your environment
+ARDUINO_REMOTEID_PATH = r"path\to\ArduRemoteID\RemoteIDModule"
+ONDOCEAN_REMOTEID_PATH = r"path\to\ondocean-remoteid"
+ARDUINO_CLI_PATH = r"arduino-cli"  # Use system PATH or full path
 
 # Required ArduRemoteID files
 REQUIRED_REMOTEID_FILES = [
