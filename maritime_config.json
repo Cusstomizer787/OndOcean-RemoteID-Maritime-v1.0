@@ -1,0 +1,80 @@
+{
+  "ondocean_remoteid": {
+    "device_info": {
+      "manufacturer": "OndOcean",
+      "model": "RemoteID Maritime v1.0",
+      "serial_number": "ONRID-{MAC_ADDR}",
+      "firmware_version": "1.0.0-maritime",
+      "hardware_version": "ESP32S3-MAR-001"
+    },
+    "compliance": {
+      "astm_f3586_22": true,
+      "eu_remoteid": true,
+      "maritime_adaptation": true
+    },
+    "transmission": {
+      "wifi_beacon": {
+        "enabled": true,
+        "power_dbm": 20,
+        "interval_ms": 1000,
+        "maritime_ssid_prefix": "ONRID-MAR"
+      },
+      "wifi_nan": {
+        "enabled": true,
+        "service_name": "ondocean.remoteid.maritime"
+      },
+      "ble": {
+        "enabled": true,
+        "mode": "bt5_long_range",
+        "tx_power": 8
+      }
+    },
+    "gnss": {
+      "required": true,
+      "module": "ublox_f9p",
+      "accuracy_threshold_m": 5.0,
+      "maritime_datum": "WGS84",
+      "update_rate_hz": 10
+    },
+    "maritime_features": {
+      "waterproof_rating": "IP67",
+      "operating_temp_c": [-20, 60],
+      "humidity_tolerance": 95,
+      "salt_spray_resistant": true,
+      "buoyancy_compatible": true
+    },
+    "power_management": {
+      "battery_type": "LiPo_3S",
+      "low_power_mode": true,
+      "sleep_timeout_min": 30,
+      "battery_monitor": true,
+      "solar_charging": false
+    },
+    "connectivity": {
+      "mqtt": {
+        "enabled": true,
+        "broker": "anemone.local",
+        "port": 1883,
+        "topic_prefix": "ondocean/remoteid",
+        "qos": 1
+      },
+      "web_interface": {
+        "enabled": true,
+        "maritime_dashboard": true,
+        "ota_updates": true
+      }
+    },
+    "sensors": {
+      "environmental": {
+        "temperature": true,
+        "humidity": true,
+        "pressure": true
+      },
+      "motion": {
+        "accelerometer": true,
+        "gyroscope": true,
+        "magnetometer": true
+      }
+    }
+  }
+}

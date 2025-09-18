@@ -1,0 +1,25 @@
+/*
+ * MAVLink version header for OndOcean RemoteID
+ * Simplified version for compilation
+ */
+
+#pragma once
+
+#define MAVLINK_VERSION "2.0.0"
+#define MAVLINK_BUILD_DATE __DATE__
+
+// MAVLink protocol version
+#define MAVLINK_PROTOCOL_VERSION_MIN 1
+#define MAVLINK_PROTOCOL_VERSION_MAX 2
+
+// System and component IDs
+#define MAVLINK_SYSTEM_ID 1
+#define MAVLINK_COMPONENT_ID 1
+
+// Message definitions for RemoteID
+#define MAVLINK_MSG_ID_OPEN_DRONE_ID_LOCATION 12901
+#define MAVLINK_MSG_ID_OPEN_DRONE_ID_AUTHENTICATION 12902
+#define MAVLINK_MSG_ID_OPEN_DRONE_ID_SELF_ID 12903
+#define MAVLINK_MSG_ID_OPEN_DRONE_ID_SYSTEM 12904
+#define MAVLINK_MSG_ID_OPEN_DRONE_ID_OPERATOR_ID 12905
+#define MAVLINK_MSG_ID_OPEN_DRONE_ID_MESSAGE_PACK 12915

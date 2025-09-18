@@ -1,0 +1,39 @@
+# OndOcean RemoteID Maritime Module Dependencies
+# Phase 1 - ESP32-S3 RemoteID Module Support Scripts
+
+# MQTT Communication (for configuration and monitoring)
+paho-mqtt>=1.6.1
+
+# JSON schema validation
+jsonschema>=4.17.0
+
+# Configuration management
+pyyaml>=6.0
+
+# Logging and monitoring
+structlog>=22.3.0
+
+# Web interface dependencies (for configuration portal)
+flask>=2.3.0
+flask-cors>=4.0.0
+requests>=2.28.0
+
+# GPS/GNSS utilities (for coordinate processing)
+pynmea2>=1.19.0
+
+# Time zone handling
+pytz>=2023.3
+
+# Development and testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.7.0
+flake8>=6.0.0
+
+# Optional: Enhanced RemoteID features
+# bleak>=0.20.0  # BLE communication for RemoteID reception testing
+# geopy>=2.3.0  # Geographic calculations for distance/bearing
+
+# Optional: Advanced GNSS processing (for u-blox F9P)
+# pyubx2>=2.7.0  # u-blox UBX protocol parsing
+# pynmeagps>=1.0.0  # Advanced NMEA parsing
